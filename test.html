@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Test IE11 / FF json volumineux</title>
+    <script>
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+        }
+      };
+      xhttp.open(
+        "GET",
+        "https://gist.githubusercontent.com/asicfr/911d9155aa75bc172f79534ee3313c7e/raw/4998578c1a8ede1d33645a8af01b487548cac64e/contentAnoymise.json",
+        true
+      );
+      xhttp.setRequestHeader("Content-type", "application/json");
+      xhttp.send();
+    </script>
+  </head>
+  <body>
+    <h1>Test IE11 / FF json volumineux</h1>
+    <div id="state"></div>
+  </body>
+</html>
