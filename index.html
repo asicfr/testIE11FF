@@ -4,13 +4,18 @@
     <title>Test IE11 / FF json volumineux</title>
     <script>
       function myFunction() {
+        var start = new Date().getTime();
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
           if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("state").innerHTML = "success";
-            console.log("response ok");
+            var msg = "response ok";
+            var end1 = new Date().getTime() - start;
+            msg = msg + "<br/>temps rq :" + end1;
             var jsonResponse = JSON.parse(xhttp.responseText);
+            var end2 = new Date().getTime() - end1;
+            msg = msg + "<br/>temps parsing :" + end2;
             console.log("json ok");
+            document.getElementById("state").innerHTML = msg;
           }
         };
         xhttp.open(
