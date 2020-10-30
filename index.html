@@ -3,22 +3,30 @@
     <meta charset="utf-8" />
     <title>Test IE11 / FF json volumineux</title>
     <script>
-      var xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-        }
-      };
-      xhttp.open(
-        "GET",
-        "https://asicfr.github.io/testIE11FF/contentAnoymise.json",
-        true
-      );
-      xhttp.setRequestHeader("Content-type", "application/json");
-      xhttp.send();
+      function myFunction() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("state").innerHTML = "success";
+            console.log("response ok");
+            var jsonResponse = JSON.parse(xhttp.responseText);
+            console.log("json ok");
+          }
+        };
+        xhttp.open(
+          "GET",
+          "https://asicfr.github.io/testIE11FF/contentAnoymise.json",
+          true
+        );
+        xhttp.setRequestHeader("Content-type", "application/json");
+        xhttp.send();
+         
+      }
     </script>
   </head>
   <body>
     <h1>Test IE11 / FF json volumineux</h1>
+    <button onclick="myFunction()">Click me</button>
     <div id="state"></div>
   </body>
 </html>
